@@ -9,6 +9,15 @@
     {include file="$template/includes/head.tpl"}
 
     {$headoutput}
+    
+ <!--START Product Image-->   
+<script type="text/javascript" src="templates/{$template}/js/productimage.js"></script>
+<link href="templates/{$template}/css/productimage.css" rel="stylesheet" />
+<script type="text/javascript" src="templates/{$template}/js/jquery.jcarousel.min.js"></script>
+<!--END Product Image--> 
+  <!--START ShareThis-->  
+<script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5c7ac5b3df6421001143b1d5&product=inline-share-buttons' async='async'></script>
+<!--END ShareThis--> 
 
 </head>
 <body data-phone-cc-input="{$phoneNumberInputStyle}">
