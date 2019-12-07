@@ -6,3 +6,53 @@
     defined here.
 
 ***************************************************** */
+
+
+
+
+.home-shortcuts {
+  background: #05b23c;
+}
+
+section#header .logo img {
+    margin: 0;
+    padding: 0;
+    max-height: 150px;
+    vertical-align: middle;
+}
+
+
+section#home-banner .btn.search {
+    background-color: #05b23c;
+}
+
+section#main-body .panel-heading {
+  background-color: #05b23c;
+}
+
+section#main-body .panel-title {
+    color: #fff;
+}
+
+
+.navbar-default {
+   background-color: #003c62;
+
+}
+
+
+section#footer {
+  background-color: #000;
+}
+
+section#footer .container {
+  color: #fff;
+}
+
+section#footer a {
+  color: #05b23c;
+}
+
+section#footer P { 
+    text-align: center 
+}
