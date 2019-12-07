@@ -36,8 +36,11 @@
                         <div class="product-status product-status-{$rawstatus|strtolower}">
                             <div class="product-icon text-center">
                                 <span class="fa-stack fa-lg">
+      <!--Removing this section for Product Image
                                     <i class="fas fa-circle fa-stack-2x"></i>
                                     <i class="fas fa-{if $type eq "hostingaccount" || $type == "reselleraccount"}hdd{elseif $type eq "server"}database{else}archive{/if} fa-stack-1x fa-inverse"></i>
+       <!--Added the following DIV for Product Image -->
+                                    <div id="productimage-include"></div>
                                 </span>
                                 <h3>{$product}</h3>
                                 <h4>{$groupname}</h4>
@@ -475,3 +478,23 @@
 
     </div>
 </div>
+
+<!--Added this section for looping product images-->
+<div id="productimage-insert" style="display:none;">
+<div class="productimage-wrapper" style="margin: auto; border: 0px solid #fff; width:160px; height:160px;"> <!--Note: Wrapper width/height should equal double the border width/height plus the image width/height.-->
+{if $productimageid["product"][$pid]|@count < 2}
+<img id="{$productimageid["product"][$pid][0]}" src="modules/addons/productimage/product_images/{$productimageid["product"][$pid][0]}.png" style="width: 140px; height: 140px;" onclick="productImageOpenModal(this.id);" onerror="productImageError(this);">
+{else}
+<div class="jcarousel-auto">
+<ul>
+{foreach $productimageid["product"][$pid] as $image}
+<li><img id="{$image}" src="modules/addons/productimage/product_images/{$image}.png" style="width: 140px; height: 140px;" onclick="productImageOpenModal(this.id);" onerror="productImageError(this);"></li>
+{/foreach}
+</ul>
+</div>
+{/if}
+</div>
+</div>
+<script type="text/javascript">
+document.getElementById("productimage-include").innerHTML = document.getElementById("productimage-insert").innerHTML;
+</script> 
