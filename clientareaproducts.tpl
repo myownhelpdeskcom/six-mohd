@@ -38,7 +38,25 @@
                             <img src="{$BASE_PATH_IMG}/ssl/ssl-inactive-domain.png" data-toggle="tooltip" title="{lang key='sslState.sslInactiveService'}">
                         {/if}
                     </td>
-                    <td><strong>{$service.product}</strong>{if $service.domain}<br /><a href="http://{$service.domain}" target="_blank">{$service.domain}</a>{/if}</td>
+                    <td>
+<!--START Product Image-->   
+<div style="float: left; padding-right:5px;">
+<div class="productimage-wrapper" style="margin: 0; border: 5px solid #fff; width:85px; height:85px;"> <!--Note: Wrapper width/height should equal double the border width/height plus the image width/height.-->
+{if $productimageid["product"][$productimage[$service.id].packageid]|@count < 2}
+<img id="{$productimageid["product"][$productimage[$service.id].packageid][0]}" src="modules/addons/productimage/product_images/{$productimageid["product"][$productimage[$service.id].packageid][0]}.png" style="width: 75px; height: 75px;" onerror="productImageError(this);">
+{else}
+<div class="jcarousel-auto">
+<ul>
+{foreach $productimageid["product"][$productimage[$service.id].packageid] as $image}
+<li><img id="{$image}" src="modules/addons/productimage/product_images/{$image}.png" style="width: 75px; height: 75px;" onerror="productImageError(this);"></li>
+{/foreach}
+</ul>
+</div>
+{/if}
+</div>
+</div>
+<!--END Product Image-->
+                    <strong>{$service.product}</strong>{if $service.domain}<br /><a href="http://{$service.domain}" target="_blank">{$service.domain}</a>{/if}</td>
                     <td class="text-center" data-order="{$service.amountnum}">{$service.amount}<br />{$service.billingcycle}</td>
                     <td class="text-center"><span class="hidden">{$service.normalisedNextDueDate}</span>{$service.nextduedate}</td>
                     <td class="text-center"><span class="label status status-{$service.status|strtolower}">{$service.statustext}</span></td>
